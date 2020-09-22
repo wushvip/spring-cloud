@@ -1,5 +1,0 @@
-tracer.property: "I am the default"
-spring.database.driverClassName: "com.mysql.jdbc.Driver"
-spring.datasource.url: "jdbc:mysql://10.139.12.171/infinite?useSSL=false&useUnicode=true&amp&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC"
-spring.datasource.username: "bdoc"
-spring.datasource.password: "123456"
