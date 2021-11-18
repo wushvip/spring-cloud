@@ -1,0 +1,53 @@
+#使用共享文件夹作为配置中心配置方式
+#server:
+#  port: 7001
+#  context-path: /configCenter
+#spring:
+#  profiles:
+#    active: native
+#
+#  rabbitmq:
+#    host: 10.254.9.78
+#    port: 5672
+#    username: springcloud
+#    password: springcloud
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          #search-locations: file:/wy/springcloud/configserver/config/file
+#          search-locations: file:D:\home\springCloud\config
+#使用git作为配置中心配置方式
+#file:///wy/springcloud/configserver/config/file/product-server
+server:
+  port: 7001
+  servlet:
+    context-path: /configCenter
+spring:
+  application:
+    name: config-center
+  cloud:
+    config:
+      server:
+        encrypt.enabled: false
+        git:
+          # spring Cloud 1.x需要在后缀加上“/”结尾
+          #默认配置uri
+          uri: https://github.com/wushvip/spring-cloud/
+          searchPaths: bdoc,foura  #多个配置文件目录，用 “,”隔开
+          username:
+          password:
+          default-label: develop
+          repos:
+            dev:
+              pattern: dev/*
+              uri: https://github.com/wushvip/spring-cloud/{application}/dev
+            pro:
+              pattern: pro/*
+              uri: https://github.com/wushvip/spring-cloud/{application}/pro
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: bus-refresh,bus-env,health,info
